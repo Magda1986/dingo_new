@@ -1,6 +1,6 @@
 # maths/models.py
 from django.db import models
-...
+
 
 OPERATION_CHOICES = (
    ("add", "add"),
