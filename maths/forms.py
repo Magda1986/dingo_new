@@ -1,6 +1,5 @@
 from django import forms
 
-
 class ResultForm(forms.Form):
     value = forms.FloatField(required=False)
     error = forms.CharField(required=False)

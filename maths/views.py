@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
+from maths.forms import ResultForm
 
 
 def math(request):
@@ -144,7 +145,36 @@ def results_list(request):
         context={"results": results}
     )
 
+def results_list(request):
+    if request.method == "POST":
+        form = ResultForm(data=request.POST)
 
+        if form.is_valid():
+            if form.cleaned_data['error'] == '':
+                form.cleaned_data['error'] = None
+            Result.objects.get_or_create(form.cleaned_data)
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                "Utworzono nowy Result!!"
+            )
+        else:
+            messages.add_message(
+                request,
+                messages.ERROR,
+                form.errors['__all__']
+            )
+
+    form = ResultForm()
+    results = Result.objects.all()
+    return render(
+        request=request,
+        template_name="maths/results.html",
+        context={
+            "results": results,
+            "form": form
+        }
+    )
 
 #def div(request, a, b):
  #  a, b = int(a), int(b)
