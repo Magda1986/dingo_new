@@ -12,11 +12,11 @@ class Post(models.Model):
         on_delete=models.CASCADE,
         blank=True,
         null=True)
-    def __str__(self):
-        return f"id:{self.id}, title:{self.title}, author:{self.author}"
+    #def __str__(self):
+        #return f"id:{self.id}, title:{self.title}, author:{self.author}"
 
 class Author(models.Model):
     nick = models.CharField(max_length=10, unique=True)
     email = models.EmailField(max_length=50, unique=True)
-    def __str__(self):
-        return f"nick:{self.nick}, email:{self.email}"
+    #def __str__(self):
+        #return f"nick:{self.nick}, email:{self.email}"
