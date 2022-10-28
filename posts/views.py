@@ -16,6 +16,16 @@ def new_post(request):
     }
     return render(request, "posts/new_post.html", context)
 
+def new_author(request):
+    form = AuthorForm(request.POST or None)
+    if form.is_valid():
+        form.save(commit = True)
+        form = AuthorForm
+    context = {
+        "form": form
+    }
+    return render(request, "posts/new_author.html", context)
+
 def post(request):
     t = loader.get_template("posts/main.html")
     return HttpResponse(t.render())
