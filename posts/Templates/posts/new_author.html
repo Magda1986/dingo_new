@@ -1,0 +1,24 @@
+{% extends "posts/main.html" %}
+
+{% block title %} {{Title}} {% endblock %}
+
+{% block content %}
+
+<!--
+<form method="post"> {% csrf_token %}
+    ten zapis powoduje, że dane z formularza nie zapiszą się w pasku http://
+    {{form.as.p}}
+
+<input type="submit", value="save">
+</form>
+ -->
+
+
+<form method="post">
+   {% csrf_token %}
+   {{ form.as_table }}
+   <input type="submit" value="Save">
+</form>
+
+
+{% endblock %}
