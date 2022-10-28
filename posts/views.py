@@ -9,7 +9,8 @@ from django.template import loader
 def new_post(request):
     form = PostForm(request.POST or None)
     if form.is_valid():
-        form.save
+        form.save(commit = True)
+        form = PostForm
     context = {
         "form": form
     }
