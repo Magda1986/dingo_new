@@ -9,7 +9,7 @@ urlpatterns = [
    path('sub/<int:a>/<int:b>', sub),
    path('mul/<int:a>/<int:b>', mul),
    path('div/<int:a>/<int:b>', div),
-   path('histories', maths_list, name="list"),
+   path('histories/', maths_list),
    path('histories/<int:id>', math_details, name="details"),
-   path('results', results_list, name="results")
+   path('results/', results_list, name="results")
 ]

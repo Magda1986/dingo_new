@@ -6,6 +6,8 @@ from django.urls import resolve
 from django.urls.exceptions import Resolver404
 from .views import add, sub
 
+
+#   TESTY NA MODELS.PY
 class MathModelTest(TestCase):
 
     def setUp(self):
@@ -18,7 +20,6 @@ class MathModelTest(TestCase):
 
         self.assertEqual(str(m1), "id:1, a=1, b=2, op=add")
         self.assertEqual(str(m2), "id:2, a=20, b=30, op=sub")
-
 
 class ResultModelTest(TestCase):
 
@@ -33,8 +34,9 @@ class ResultModelTest(TestCase):
         self.assertEqual(str(r1), 'value: 10.0 | error: None')
         self.assertEqual(str(r2), 'value: None | error: 0 division error!')
 
-class MathViewsTest(TestCase):
 
+#   TESTY NA Views.PY
+class MathViewsTest(TestCase):
     def setUp(self):
         Math.objects.create(operation="sub", a=20, b=30)
         self.client = Client()
@@ -47,6 +49,7 @@ class MathViewsTest(TestCase):
                       response.content.decode())
 
 
+#   TESTY NA FORMS.PY
 class ResultFormTest(TestCase):
     def test_result_save_correct_data(self):
         data = {"value": 200}
@@ -60,6 +63,7 @@ class ResultFormTest(TestCase):
         self.assertIsNone(r.error)
 
 
+#   TESTY NA URLS.PY
 class TestUrls(TestCase):
    def test_resolution_for_add(self):
        resolver = resolve('/maths/add/1/2')

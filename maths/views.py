@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-#from maths.forms import ResultForm
+from django.contrib import messages
+from .forms import ResultForm
 from .models import Result, Math
 
 
@@ -145,13 +146,17 @@ def math_details(request, id):
    #     template_name="maths/results.html",
     #    context={"results": results}
     #)
+
+
 def results_list(request):
     if request.method == "POST":
         form = ResultForm(data=request.POST)
 
         if form.is_valid():
-            if form.cleaned_data['error'] == '':
-                form.cleaned_data['error'] = None
+
+            print(form.cleaned_data)
+            print(Result.objects.get(**form.cleaned_data))
+
             Result.objects.get_or_create(form.cleaned_data)
             messages.add_message(
                 request,
