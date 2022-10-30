@@ -153,11 +153,7 @@ def results_list(request):
         form = ResultForm(data=request.POST)
 
         if form.is_valid():
-
-            print(form.cleaned_data)
-            print(Result.objects.get(**form.cleaned_data))
-
-            Result.objects.get_or_create(form.cleaned_data)
+            Result.objects.get_or_create(**form.cleaned_data)
             messages.add_message(
                 request,
                 messages.SUCCESS,
@@ -167,7 +163,7 @@ def results_list(request):
             messages.add_message(
                 request,
                 messages.ERROR,
-                form.errors['__all__']
+                form.errors.get('__all__')
             )
 
     form = ResultForm()

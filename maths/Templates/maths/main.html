@@ -4,11 +4,18 @@
    <meta charset="UTF-8">
    <title>{% block title %}Kalkulator{% endblock %}</title>
 </head>
-<body style="background: lightGrey ; font-family: Arial ;>
+<body style="background: lightGrey ; font-family: Arial ; ">
 <div id="content">
    <div id="header">
        <h1>Kalkulator</h1>
    </div>
+   {% if messages %}
+       <ul class="messages" style="background: red ; font-size: 15pt ; ">
+           {% for message in messages %}
+               <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+           {% endfor %}
+       </ul>
+   {% endif %}
    <div id="inner-content">
        {% block content %}
            <h2>Wybierz działanie, które chcesz wykonać:</h2>
