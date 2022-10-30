@@ -19,7 +19,7 @@ def new_post(request):
 def new_author(request):
     form = AuthorForm(request.POST or None)
     if form.is_valid():
-        form.save(commit = True)
+        form.save(commit=True)
         form = AuthorForm
     context = {
         "form": form
@@ -30,9 +30,23 @@ def post(request):
     t = loader.get_template("posts/main.html")
     return HttpResponse(t.render())
 
+
 def posts_list(request):
-    t = loader.get_template("posts/posts_list.html")
-    return HttpResponse(t.render())
+    posts = Post.objects.all()
+    form = PostForm()
+    if request.method == "POST":
+        form = PostForm(data=request.POST)
+        if form.is_valid():
+            form.save()      # tutaj wprowadzamy zmianę
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                "Dodano nowy Post!!"
+            )
+
+#def posts_list(request):
+    #t = loader.get_template("posts/posts_list.html")
+    #return HttpResponse(t.render())
 
 def post_details(request):
     t = loader.get_template("posts/post_details.html")

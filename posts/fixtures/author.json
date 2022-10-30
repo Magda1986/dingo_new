@@ -1,0 +1,42 @@
+[
+{
+    "model": "posts.author",
+    "pk": 1,
+    "fields": {
+        "nick": "magda",
+        "email": "magda@magda.pl"
+    }
+},
+{
+    "model": "posts.author",
+    "pk": 2,
+    "fields": {
+        "nick": "Ignacy",
+        "email": "ignacy@ignacy.pl"
+    }
+},
+{
+    "model": "posts.author",
+    "pk": 3,
+    "fields": {
+        "nick": "Gabrylusze",
+        "email": "Gabrylek@gabrylek.pl"
+    }
+},
+{
+    "model": "posts.author",
+    "pk": 4,
+    "fields": {
+        "nick": "Anonim",
+        "email": "anonim@wp.pll"
+    }
+},
+{
+    "model": "posts.author",
+    "pk": 7,
+    "fields": {
+        "nick": "reksin",
+        "email": "test@wp.pl"
+    }
+}
+]

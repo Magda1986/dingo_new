@@ -1,0 +1,90 @@
+[
+{
+    "model": "posts.post",
+    "pk": 1,
+    "fields": {
+        "title": "Coś zaczyna działać",
+        "content": "vthjsbvhjsdbv ncjkd. jbcjhsb",
+        "created": "2022-10-27T21:17:37.341Z",
+        "modified": "2022-10-27T21:17:37.342Z",
+        "author": 1
+    }
+},
+{
+    "model": "posts.post",
+    "pk": 2,
+    "fields": {
+        "title": "Test",
+        "content": "treść posta",
+        "created": "2022-10-27T21:18:16.494Z",
+        "modified": "2022-10-27T21:18:16.494Z",
+        "author": 2
+    }
+},
+{
+    "model": "posts.post",
+    "pk": 3,
+    "fields": {
+        "title": "Pierwszy formularz",
+        "content": "Po godzinach starań i nierównej walki z Django, udało się za pomocą formularza zamieścić post na stronie.",
+        "created": "2022-10-28T14:49:21.936Z",
+        "modified": "2022-10-28T14:49:21.937Z",
+        "author": 1
+    }
+},
+{
+    "model": "posts.post",
+    "pk": 4,
+    "fields": {
+        "title": "Kolejny test",
+        "content": "A ten post prawdopodobnie też będzie działać :)",
+        "created": "2022-10-28T14:53:27.166Z",
+        "modified": "2022-10-28T14:53:27.166Z",
+        "author": 1
+    }
+},
+{
+    "model": "posts.post",
+    "pk": 5,
+    "fields": {
+        "title": "Test",
+        "content": "Testowania c.d.",
+        "created": "2022-10-28T15:12:35.925Z",
+        "modified": "2022-10-28T15:12:35.925Z",
+        "author": 1
+    }
+},
+{
+    "model": "posts.post",
+    "pk": 6,
+    "fields": {
+        "title": "Test",
+        "content": "Testowania c.d.",
+        "created": "2022-10-28T18:08:57.420Z",
+        "modified": "2022-10-28T18:08:57.420Z",
+        "author": 1
+    }
+},
+{
+    "model": "posts.post",
+    "pk": 7,
+    "fields": {
+        "title": "rozdział 3",
+        "content": "Sprawdzono",
+        "created": "2022-10-28T18:09:17.509Z",
+        "modified": "2022-10-28T18:09:17.509Z",
+        "author": 1
+    }
+},
+{
+    "model": "posts.post",
+    "pk": 8,
+    "fields": {
+        "title": "hjdj",
+        "content": "dhgchd",
+        "created": "2022-10-30T15:32:59.962Z",
+        "modified": "2022-10-30T15:32:59.962Z",
+        "author": 1
+    }
+}
+]

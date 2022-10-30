@@ -5,11 +5,11 @@ app_name = "maths"
 
 urlpatterns = [
    path('', math),
-   path('add/<int:a>/<b>', add),
-   path('sub/<int:a>/<b>', sub),
-   path('mul/<int:a>/<b>', mul),
-   path('div/<int:a>/<b>', div),
-   path('histories/', maths_list, name="list"),
+   path('add/<int:a>/<int:b>', add),
+   path('sub/<int:a>/<int:b>', sub),
+   path('mul/<int:a>/<int:b>', mul),
+   path('div/<int:a>/<int:b>', div),
+   path('histories', maths_list, name="list"),
    path('histories/<int:id>', math_details, name="details"),
-   path('results/', results_list, name="results")
+   path('results', results_list, name="results")
 ]

@@ -4,7 +4,7 @@ from .models import Post, Author
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = "__all__"
+        fields = "__all__"   #Gdybyśmy chcieli wybrać jakieś pola, to po prostu zamiast "__all__" podajemy listę z nazwami pól, np. ["title", "content", "author"].
         fields = ["title", "content", "author"]
     #def clean(self):
         #cleaned_data = super().clean()

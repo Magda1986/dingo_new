@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-from maths.forms import ResultForm
+#from maths.forms import ResultForm
+from .models import Result, Math
 
 
 def math(request):
@@ -82,7 +83,7 @@ def div(request, a, b):
     if b==0:
         return HttpResponse("Nie dziel przez 0")
     wynik = a / b
-    c = {"a": a, "b": b, "operacja": "*", "wynik": wynik, "title": "dzielenie"}
+    c = {"a": a, "b": b, "operacja": "/", "wynik": wynik, "title": "dzielenie"}
 
     result = Result.objects.get_or_create(value=wynik)[0]
     Math.objects.create(operation='div', a=a, b=b, result=result)
@@ -109,42 +110,41 @@ def math_details(request, id):
         context={"math": math}
     )
 
-def results_list(request):
-    if request.method == "POST":
-        value = request.POST['value'] or None
-        error = request.POST['error'] or None
-        if value and error:
-            messages.add_message(
-                request,
-                messages.ERROR,
-                "Błąd! Podano jednocześnie value i error. Podaj tylko jedną z tych wartości"
-            )
-        elif value or error:
+#def results_list(request):
+#    if request.method == "POST":
+#        value = request.POST['value'] or None
+#        error = request.POST['error'] or None
+#        if value and error:
+#            messages.add_message(
+#                request,
+#                messages.ERROR,
+#                "Błąd! Podano jednocześnie value i error. Podaj tylko jedną z tych wartości"
+#            )
+#        elif value or error:
 
-            Result.objects.get_or_create(
-                value=float(value),
-                error=error
-            )
-            messages.add_message(
-                request,
-                messages.SUCCESS,
-                "Utworzono nowy Result!!"
-            )
+#            Result.objects.get_or_create(
+#                value=float(value),
+#                error=error
+#            )
+#            messages.add_message(
+#                request,
+#                messages.SUCCESS,
+#                "Utworzono nowy Result!!"
+#            )
 
-        else:
-            messages.add_message(
-                request,
-                messages.ERROR,
-                "Błąd! Nie podano wartości!!"
-            )
+#        else:
+#            messages.add_message(
+#                request,
+#                messages.ERROR,
+#                "Błąd! Nie podano wartości!!"
+#            )
 
-    results = Result.objects.all()
-    return render(
-        request=request,
-        template_name="maths/results.html",
-        context={"results": results}
-    )
-
+#    results = Result.objects.all()
+ #   return render(
+  #      request=request,
+   #     template_name="maths/results.html",
+    #    context={"results": results}
+    #)
 def results_list(request):
     if request.method == "POST":
         form = ResultForm(data=request.POST)
