@@ -1,0 +1,51 @@
+<!--{% load bootstrap4 %}-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Strona Główna  {% endblock %}</title>
+
+
+<!--    {% load static %}-->
+<!--   <link rel="stylesheet" type="text/css" href="{% static 'maths/css/style.css' %}">-->
+
+<!--   {# Load CSS and JavaScript #}-->
+<!--   {% bootstrap_css %}-->
+<!--   {% bootstrap_javascript jquery='full' %}-->
+
+</head>
+
+<body style="background: lightGrey ; font-family: Arial ;>
+    <div id="content">
+       <h1>Magda Ratajczak - strona z aplikacjami </h1>
+    <ul>
+        <li> <a href="http://127.0.0.1:8000/infos/me"> About </a></li>
+        <li> <a href="http://127.0.0.1:8000/maths/histories"> Maths </a></li>
+        <li> <a href="http://127.0.0.1:8000/posts/5"> Posts </a></li>
+        <li> <a href="http://127.0.0.1:8000/infos/contact/"> Contact </a></li>
+
+
+        <br/>
+       <h8> <a href="http://127.0.0.1:8000/"> Wróć na stronę główną </a><h8>
+    </ul>
+       <img src="static/greetings/img/koty.png">
+
+    </div>
+
+
+    {% if messages %}
+       <ul class="messages" style="background: red ; font-size: 15pt ; ">
+           {% for message in messages %}
+               <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+           {% endfor %}
+       </ul>
+   {% endif %}
+    {% bootstrap_messages %}
+    <div>
+    {% block content %}
+    ...
+    {% endblock %}
+    </div>
+</body>
+</html>
+
