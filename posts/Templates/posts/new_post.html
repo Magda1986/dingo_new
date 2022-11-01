@@ -1,17 +1,9 @@
-{% extends "posts/main.html" %}
+{% extends "greetings/greetings.html" %}
 
 {% block title %} {{Title}} {% endblock %}
 
 {% block content %}
-
-<!--
-<form method="post"> {% csrf_token %}
-    ten zapis powoduje, że dane z formularza nie zapiszą się w pasku http://
-    {{form.as.p}}
-
-<input type="submit", value="save">
-</form>
- -->
+<div id="content">
 
 
 <form method="post">
@@ -22,6 +14,6 @@
    <input type="submit" value="Save">
 </form>
 
-
+</div>
 {% endblock %}
 
