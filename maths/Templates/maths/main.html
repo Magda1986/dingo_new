@@ -1,13 +1,26 @@
+{% load bootstrap4 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
    <title>{% block title %}Kalkulator{% endblock %}</title>
+
+    {% load static %}
+   <link rel="stylesheet" type="text/css" href="{% static 'maths/css/style.css' %}">
+
+   {# Load CSS and JavaScript #}
+   {% bootstrap_css %}
+   {% bootstrap_javascript jquery='full' %}
+
 </head>
 <body style="background: lightGrey ; font-family: Arial ; ">
 <div id="content">
    <div id="header">
        <h1>Kalkulator</h1>
+       <div id="header">
+        <img src="/static/maths/img/logo.svg">
+        To jest część stała szablonu głównego
+        </div>
    </div>
    {% if messages %}
        <ul class="messages" style="background: red ; font-size: 15pt ; ">
@@ -16,6 +29,8 @@
            {% endfor %}
        </ul>
    {% endif %}
+    {% bootstrap_messages %}
+
    <div id="inner-content">
        {% block content %}
            <h2>Wybierz działanie, które chcesz wykonać:</h2>

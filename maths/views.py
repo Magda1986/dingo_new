@@ -4,6 +4,7 @@ from django.template import loader
 from django.contrib import messages
 from .forms import ResultForm
 from .models import Result, Math
+from django.core.paginator import Paginator
 
 
 def math(request):
@@ -97,6 +98,9 @@ def div(request, a, b):
 
 def maths_list(request):
     maths = Math.objects.all()
+    paginator = Paginator(maths, 5)
+    page_number = request.GET.get('page')
+    maths = paginator.get_page(page_number)
     return render(
         request=request,
         template_name="maths/list.html",

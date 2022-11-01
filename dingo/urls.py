@@ -20,13 +20,14 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib import admin
 from django.urls import path, include
-
-
+from infos.views import infos
 
 urlpatterns = [
 
+   path('', include('greetings.urls')),
    path('admin/', admin.site.urls),
    path('maths/', include("maths.urls")),
    path("posts/", include("posts.urls")),
    path('infos/', include('infos.urls')),
+
 ]

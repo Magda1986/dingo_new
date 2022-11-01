@@ -76,3 +76,21 @@ class TestUrls(TestCase):
    def test_arguments_should_be_integers_or_404(self):
        with self.assertRaises(Resolver404):
            resolve('maths/sub/a/b')
+
+
+# Testy na stronicowanie odpowiedniej ilości wpisów. Uruchomienie testów robimy poleceniem: $ python manage.py test
+class MathViewsPaginationTest(TestCase):
+   fixtures = ['math', 'result']
+
+   def setUp(self):
+       self.client = Client()
+
+   def test_get_first_5(self):
+       response = self.client.get("/maths/histories")
+       self.assertEqual(response.status_code, 200)
+       self.assertEqual(len(response.context["maths"]), 5)
+
+   def test_get_last_page(self):
+       response = self.client.get("/maths/histories/?page=3")
+       self.assertEqual(response.status_code, 200)
+       self.assertEqual(len(response.context["maths"]), 2)
